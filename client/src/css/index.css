@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #cee6b4;
+  
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.navbar-1{
+  color: #1f441e
+
+}
+
+.item{
+  
+ 
+  
+  text-align: center;
+  margin-top: 10px ;
+  margin-left: 10px;
+  
+  
+}
+
+.text-decoration{
+  text-decoration: none;
+}
+
+.text-align{
+  text-align: center;
+}
+
+.search-title{
+  margin-top: 30px;
+}
+
+.padding-top{
+  padding-top: 30px;
+}
+
+.padding-left{
+  padding-left: 10px;
+}
+
+.margin-bottom{
+  margin-bottom: 25px;
+}
+
+.form{
+  width: 250px;
+}
