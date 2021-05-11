@@ -6,6 +6,7 @@ To run this app:
 
 
 Download a zip folder from the repository
+extract anywhere you like.
 
 Step1: Migrate data to a database
 
@@ -13,7 +14,7 @@ Use MongoDB compass to create new Database on the localhost.
 Name the Database RestrauntsDB and the collection restraunts.
 Click on restraunts collection and import Data. 
 Select CSV and browse for the data.csv file.
-Select CSV in in the windows search criteria and proceed too import.
+Select CSV in the windows search criteria and proceed too import.
 
 
 Step2: Download Node modules 
@@ -37,5 +38,5 @@ open another terminal
 cd into the client folder from Restraunt-app-master folder
 run command: npm start
 
-
+Server uses port 3001 and React app uses port 3000
 
