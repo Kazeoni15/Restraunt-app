@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const mongoosePaginate = require("mongoose-paginate-v2");
 const cors = require("cors");
 
+require("dotenv").config({path:"./.env"});
+const DB_url = process.env.DATABASE_URL;
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -15,11 +17,14 @@ const Schema = mongoose.Schema;
 
 
 // database connection  
+main().catch(err=> console.log(err));
 
-mongoose.connect("mongodb://localhost:27017/RestrauntsDB", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+async function main(){
+  await mongoose.connect(DB_url,  {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+}
 
 // mongoose schema for restraunts
 
@@ -146,7 +151,7 @@ restraunts.paginate({$and: [exp1, exp2]}, options, function (err, result) {
 
 // cart post route with create a cart obect in carts collection
 
-app.post("/cart", function(req, res){
+app.post("/cart", async function(req, res){
   let resName = req.body.resName;
   let items = req.body.items
   let quantity = req.body.quantity;
@@ -163,7 +168,7 @@ app.post("/cart", function(req, res){
     cartID: cartID
 
   })
-  Cart.save()
+  await Cart.save()
 
   res.json(cartID);
 
@@ -187,7 +192,7 @@ app.get("/cart/cartnum/:cartID", function(req, res){
 
 // orders post route will post orders to the orders collection in the database
 
-app.post("/orders", function(req, res){
+app.post("/orders", async function(req, res){
 let name = req.body.name;
 let address= req.body.address;
 let total= req.body.total;
@@ -205,7 +210,7 @@ const Order = new order({
   name: name
 })
 
-Order.save()
+await Order.save()
 
 
 })
